@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import DiaryEntry from './components/DiaryEntry'
 import AddEntryModal from './components/AddEntryModal'
+import Footer from './components/Footer'
 
 function App() {
   const [entries, setEntries] = useState([])
@@ -64,7 +65,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-main">
+    <div className="min-h-screen bg-gradient-main flex flex-col">
       <header className="bg-bg-dark/90 shadow-lg sticky top-0 z-40 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto py-4 sm:py-6 px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
@@ -84,7 +85,7 @@ function App() {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+      <main className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 flex-grow">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {entries.map((entry, index) => (
             <div
@@ -108,6 +109,8 @@ function App() {
           </div>
         )}
       </main>
+
+      <Footer />
 
       <AddEntryModal
         isOpen={isAddModalOpen}
